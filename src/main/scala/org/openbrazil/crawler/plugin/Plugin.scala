@@ -1,54 +1,44 @@
 package org.openbrazil.crawler.plugin
 
-import java.io.{ByteArrayInputStream, InputStreamReader}
 import java.net.URLEncoder
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpCharsets._
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model.MediaTypes._
-import akka.http.scaladsl.model.{ContentType, HttpEntity, HttpRequest, RequestEntity}
-import akka.stream.ActorMaterializer
-import akka.stream.scaladsl.{Sink, Source}
+import akka.http.scaladsl.model.{HttpEntity, _}
 import akka.util.ByteString
+import org.openbrazil.crawler.service.HttpClientService
 
-import scala.concurrent.Future
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.{ExecutionContext, Future}
+
 
 /**
   * Plugin base class
   */
-trait Plugin {
+trait Plugin extends HttpClientService {
 
-  implicit val materializer = ActorMaterializer()
+  val encoding: String = "ISO-8859-1"
+
+  // TODO use host from class Site
+  val host ="portal.marmeleiro.pr.gov.br"
 
   /**
     * Actual page reader.
     */
-  def page(site: Site, pageNumber: Int = 1): Future[(InputStreamReader, Int)] = {
-    Source
-      .single(request(site.uri, urlEncodedForm, pageNumber))
-      .via(Http().outgoingConnection(site.host))
-      .runWith(Sink.head)
-      .flatMap( response =>
-      response.entity.toStrict(FiniteDuration(120, "seconds")) collect {
-        case entity =>
-          (new InputStreamReader(
-            new ByteArrayInputStream(entity.data.decodeString(site.encoding).getBytes)), pageNumber)
-      }
-    )
-  }
+  def page(site: Site, pageNumber: Int = 1)(implicit ec: ExecutionContext): Future[HttpResponse] =
+    queueRequest(request2(site, pageNumber))
 
   def urlEncodedForm: String
 
-  def dateEncode(date: LocalDateTime)(implicit formatter: DateTimeFormatter, encoding: String) = URLEncoder.encode(date.format(formatter), encoding)
+  def dateEncode(date: LocalDateTime)(implicit formatter: DateTimeFormatter) =
+    URLEncoder.encode(date.format(formatter), encoding)
 
-  private[plugin] def request(uri: String, urlEncodedForm: String, pageNumber: Int) = {
+  def request2(site: Site, pageNumber: Int, method: HttpMethod = POST) = {
     val data = ByteString(urlEncodedForm + s"&numpag=$pageNumber")
     val requestEntity:RequestEntity = HttpEntity(ContentType(`application/x-www-form-urlencoded`, `UTF-8`), data)
-    HttpRequest().withUri(uri).withMethod(POST).withEntity(requestEntity)
+    HttpRequest().withUri(site.uri).withMethod(method).withEntity(requestEntity)
   }
 
 }

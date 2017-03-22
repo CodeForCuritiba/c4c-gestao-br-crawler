@@ -10,9 +10,9 @@ import technology.tabula.extractors.BasicExtractionAlgorithm
   */
 class ReaderActor extends Actor with ActorLogging {
 
-  import collection.JavaConverters._
-
   val extractorActor = context.actorOf(Props[ExtractorActor], "extractor")
+
+  import collection.JavaConverters._
 
   override def receive = {
     case fileName: String =>

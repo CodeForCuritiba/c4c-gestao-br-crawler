@@ -7,8 +7,6 @@ import java.time.format.DateTimeFormatter
   */
 case class PronimPlugin() extends Plugin {
 
-  implicit val host = "portal.marmeleiro.pr.gov.br"
-  implicit val uri = "/pronimtb/index.asp?acao=1&item=2"
   implicit val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
   val toDate = LocalDateTime.now()
