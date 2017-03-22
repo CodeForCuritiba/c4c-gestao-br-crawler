@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="code-gestao-br-crawler-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="sbt._, Keys._, dsl._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, http://repo.typesafe.com/typesafe/releases|maven|typesafe-releases, https://oss.sonatype.org/content/repositories/snapshots/|maven|Sonatype OSS Snapshots, /Users/mauriciofernandesdecastro/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
+<module external.linked.project.id="code-gestao-br-crawler-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="sbt._, Keys._, dsl._, _root_.com.earldouglas.xwp.ContainerPlugin.autoImport._, _root_.com.earldouglas.xwp.JettyPlugin.autoImport._, _root_.com.earldouglas.xwp.TomcatPlugin.autoImport._, _root_.com.earldouglas.xwp.WebappPlugin.autoImport._, _root_.com.typesafe.sbt.SbtNativePackager.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin.autoImport._, _root_.com.typesafe.sbt.packager.debian.DebianPlugin.autoImport._, _root_.com.typesafe.sbt.packager.docker.DockerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin.autoImport._, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin.autoImport._, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin.autoImport._, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin.autoImport._, _root_.spray.revolver.RevolverPlugin.autoImport._, _root_.fm.sbt.S3ResolverPlugin.autoImport._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.com.earldouglas.xwp.ContainerPlugin, _root_.com.earldouglas.xwp.JettyPlugin, _root_.com.earldouglas.xwp.TomcatPlugin, _root_.com.earldouglas.xwp.WarPlugin, _root_.com.earldouglas.xwp.WebappPlugin, _root_.com.typesafe.sbt.SbtNativePackager, _root_.com.typesafe.sbt.packager.archetypes.AkkaAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.AshScriptPlugin, _root_.com.typesafe.sbt.packager.archetypes.JavaAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging, _root_.com.typesafe.sbt.packager.archetypes.jar.ClasspathJarPlugin, _root_.com.typesafe.sbt.packager.archetypes.jar.LauncherJarPlugin, _root_.com.typesafe.sbt.packager.debian.DebianDeployPlugin, _root_.com.typesafe.sbt.packager.debian.DebianPlugin, _root_.com.typesafe.sbt.packager.debian.JDebPackaging, _root_.com.typesafe.sbt.packager.docker.DockerPlugin, _root_.com.typesafe.sbt.packager.docker.DockerSpotifyClientPlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerDeployPlugin, _root_.com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin, _root_.com.typesafe.sbt.packager.linux.LinuxPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmDeployPlugin, _root_.com.typesafe.sbt.packager.rpm.RpmPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalDeployPlugin, _root_.com.typesafe.sbt.packager.universal.UniversalPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsDeployPlugin, _root_.com.typesafe.sbt.packager.windows.WindowsPlugin, _root_.spray.revolver.RevolverPlugin, _root_.fm.sbt.S3ResolverPlugin" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, http://repo.typesafe.com/typesafe/releases|maven|typesafe-releases, https://oss.sonatype.org/content/repositories/snapshots/|maven|Sonatype OSS Snapshots, /Users/mauriciofernandesdecastro/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/../../project/target/idea-classes" />
     <output-test url="file://$MODULE_DIR$/../../project/target/idea-test-classes" />
@@ -14,6 +14,25 @@
     <orderEntry type="module-library">
       <library name="SBT: sbt-and-plugins">
         <CLASSES>
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.amazonaws/aws-java-sdk-core/jars/aws-java-sdk-core-1.10.35.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.amazonaws/aws-java-sdk-kms/jars/aws-java-sdk-kms-1.10.35.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.amazonaws/aws-java-sdk-s3/jars/aws-java-sdk-s3-1.10.35.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.amazonaws/aws-java-sdk-sts/jars/aws-java-sdk-sts-1.10.35.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.5.3.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.5.3.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.ant/ant-launcher/jars/ant-launcher-1.9.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.ant/ant/jars/ant-1.9.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.commons/commons-compress/jars/commons-compress-1.4.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.3.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.3.3.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.ivy/ivy/jars/ivy-2.3.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.tukaani/xz/jars/xz-1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.10/sbt_0.13/com.earldouglas/xsbt-web-plugin/jars/xsbt-web-plugin-2.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.10/sbt_0.13/com.frugalmechanic/fm-sbt-s3-resolver/jars/fm-sbt-s3-resolver-0.9.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-native-packager/jars/sbt-native-packager-1.1.4.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.10/sbt_0.13/io.spray/sbt-revolver/jars/sbt-revolver-0.8.0.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/lib/jansi.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/lib/jline.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/lib/scala-compiler.jar!/" />
@@ -66,6 +85,8 @@
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.9/testing-0.13.9.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.9/tracking-0.13.9.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.10.5/org.scala-sbt/sbt/0.13.9/xsbti/interface-0.13.9.jar!/" />
+          <root url="jar://$USER_HOME$/Tools/activator-dist-1.3.10/repository/commons-codec/commons-codec/1.6/jars/commons-codec.jar!/" />
+          <root url="jar://$USER_HOME$/Tools/activator-dist-1.3.10/repository/commons-logging/commons-logging/1.1.3/jars/commons-logging.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
